@@ -1,0 +1,33 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+      force: true
+      stdin: true
+      stdout: true
+
+- clean: ['~', '~/.config']
+
+- link:
+    ~/.config/hypr: .config/hypr
+    ~/.config/bottom: .config/bottom
+    ~/.config/waybar: .config/waybar
+    ~/.config/dunst: .config/dunst
+    ~/.config/kitty: .config/kitty
+    ~/.config/rofi: .config/rofi
+    ~/.config/Thunar: .config/Thunar
+    ~/.config/zsh: .config/zsh
+    ~/.config/Vencord: .config/Vencord
+    ~/.config/paru: .config/paru
+    ~/.config/ncmpcpp: .config/ncmpcpp
+    ~/.config/mpd: .config/mpd
+    ~/.config/macchina: .config/macchina
+    ~/.config/gtk-3.0: .config/gtk-3.0
+    ~/.local/scripts: .local/scripts
+    ~/.local/share/fonts: .local/share/fonts
+    ~/.local/share/rofi: .local/share/rofi 
+    ~/Pictures/Wallpapers: Wallpapers
+    ~/.zshenv: .zshenv
+  
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
