@@ -1,0 +1,31 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+      force: true
+      stdin: true
+      stdout: true
+
+- clean: ['~', '~/.config']
+
+- link:
+    ~/.config/picom: .config/picom
+    ~/.config/bottom: .config/bottom
+    ~/.config/bspwm: .config/bspwm
+    ~/.config/cava: .config/cava
+    ~/.config/dunst: .config/dunst
+    ~/.config/kitty: .config/kitty
+    ~/.config/polybar: .config/polybar
+    ~/.config/rofi: .config/rofi
+    ~/.config/sxhkd: .config/sxhkd
+    ~/.config/Thunar: .config/Thunar
+    ~/.config/zsh: .config/zsh
+    ~/.config/X11: .config/X11
+    ~/.config/Vencord: .config/Vencord
+    ~/.config/redshift: .config/redshift
+    ~/.local/scripts: scripts
+    ~/.local/share/fonts: .local/share/fonts
+    ~/.zshenv: .zshenv
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]

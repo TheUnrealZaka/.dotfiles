@@ -1,0 +1,134 @@
+{
+    "unsafeRequire": false,
+    "useQuickCss": true,
+    "plugins": {
+        "STFU": {
+            "enabled": false
+        },
+        "MessageEventsAPI": {
+            "enabled": true
+        },
+        "BANger": {
+            "enabled": false
+        },
+        "BetterGifAltText": {
+            "enabled": false
+        },
+        "ClickableRoleDot": {
+            "enabled": false
+        },
+        "Experiments": {
+            "enabled": false
+        },
+        "Ify": {
+            "enabled": true
+        },
+        "MessageQuickActions": {
+            "enabled": true
+        },
+        "Nitro Bypass": {
+            "enabled": true
+        },
+        "NoTrack": {
+            "enabled": true
+        },
+        "Settings": {
+            "enabled": true
+        },
+        "Unindent": {
+            "enabled": true
+        },
+        "ViewIcons": {
+            "enabled": true
+        },
+        "ApiNotices": {
+            "enabled": true
+        },
+        "ConsoleShortcuts": {
+            "enabled": false
+        },
+        "iLoveSpam": {
+            "enabled": false
+        },
+        "isStaff": {
+            "enabled": false
+        },
+        "MuteNewGuild": {
+            "enabled": true
+        },
+        "NitroBypass": {
+            "enabled": true
+        },
+        "NoReplyMention": {
+            "enabled": false
+        },
+        "PlainFolderIcon": {
+            "enabled": true
+        },
+        "RandomiseFileNames": {
+            "enabled": true
+        },
+        "SilentTyping": {
+            "enabled": false
+        },
+        "BetterUploadButton": {
+            "enabled": true
+        },
+        "NoBlockedMessages": {
+            "enabled": false
+        },
+        "NoSystemBadge": {
+            "enabled": false
+        },
+        "clearURLs": {
+            "enabled": true
+        },
+        "Webhook Tags": {
+            "enabled": true
+        },
+        "CommandsAPI": {
+            "enabled": true
+        },
+        "lenny": {
+            "enabled": true
+        },
+        "Moyai": {
+            "enabled": false
+        },
+        "NoCanaryMessageLinks": {
+            "enabled": false
+        },
+        "Quickreply": {
+            "enabled": true
+        },
+        "UwUifier": {
+            "enabled": false
+        },
+        "Fart2": {
+            "enabled": true
+        },
+        "FxTwitter": {
+            "enabled": false
+        },
+        "No RPC": {
+            "enabled": false
+        },
+        "InteractionKeybinds": {
+            "enabled": true
+        },
+        "MoreCommands": {
+            "enabled": true
+        },
+        "No F1": {
+            "enabled": false
+        },
+        "petpet": {
+            "enabled": false
+        },
+        "ReactErrorDecoder": {
+            "enabled": false
+        }
+    },
+    "notifyAboutUpdates": true,
+    "enableReactDevtools": false
+}
