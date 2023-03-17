@@ -1,26 +1,28 @@
 alias rm='rm -rIv'
 alias cp='cp -rv'
 alias mv='mv -v'
-alias mkdir='mkdir -v'
-alias rmdir='rmdir -v'
-alias ..='cd ..'
-alias cat='bat'
+alias mkdir='mkdir -vp'
 alias grep='rg'
+alias cat='bat'
+
 alias la='exa --icons -a --group-directories-first'
 alias ll='exa --icons -lah --group-directories-first'
 alias ls='exa --icons --group-directories-first'
 alias tree='exa --icons --tree'
 
-alias bsrc="$EDITOR $HOME/.config/bspwm/bspwmrc"
-alias sxrc="$EDITOR $HOME/.config/sxhkd/sxhkdrc"
-alias picomrc="$EDITOR $HOME/.config/picom/picom.conf"
-alias dunstrc="$EDITOR $HOME/.config/dunst/dunstrc"
-alias rofirc="$EDITOR $HOME/.config/rofi/config.rasi"
-alias kittyrc="$EDITOR $HOME/.config/kitty/kitty.conf"
-alias polybarrc="$EDITOR $HOME/.config/polybar/config.ini"
-alias zshrc="$EDITOR $HOME/.config/zsh/.zshrc"
-alias xinitrc="$EDITOR $HOME/.config/X11/xinitrc"
+alias hyprrc="$EDITOR $XDG_CONFIG_HOME/hypr/hyprland.conf"
+alias waybarrc="$EDITOR $XDG_CONFIG_HOME/waybar/config"
+alias lsblk="lsblk -o PATH,UUID,PARTUUID,MOUNTPOINTS -x PATH"
+
+alias bsrc="$EDITOR $XDG_CONFIG_HOME/bspwm/bspwmrc"
+alias sxrc="$EDITOR $XDG_CONFIG_HOME/sxhkd/sxhkdrc"
+alias picomrc="$EDITOR $XDG_CONFIG_HOME/picom/picom.conf"
+alias dunstrc="$EDITOR $XDG_CONFIG_HOME/dunst/dunstrc"
+alias rofirc="$EDITOR $XDG_CONFIG_HOME/rofi/config.rasi"
+alias kittyrc="$EDITOR $XDG_CONFIG_HOME/kitty/kitty.conf"
+alias polybarrc="$EDITOR $XDG_CONFIG_HOME/polybar/config.ini"
+alias zshrc="$EDITOR $XDG_CONFIG_HOME/zsh/.zshrc"
+alias xinitrc="$EDITOR $XDG_CONFIG_HOME/X11/xinitrc"
 
 alias updates="checkupdates; paru -Qum"
-alias rs="curl --data-binary @- https://paste.rs | xclip -selection clipboard"
-alias neofetch="doas pacman -S --noconfirm --noprogressbar neofetch >/dev/null && neofetch && doas pacman -R --noconfirm --nosave neofetch >/dev/null"
+alias rs="curl --data-binary @- https://paste.rs | wl-copy"

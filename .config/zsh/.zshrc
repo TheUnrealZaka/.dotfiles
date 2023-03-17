@@ -1,82 +1,87 @@
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.config/oh-my-zsh"
+# load zgenom
+source "${ZDOTDIR}/.zgenom/zgenom.zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# check for plugin and zgenom updates every 7 days
+# this does not increase the startup time.
+zgenom autoupdate
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+# if the init script doesn't exist
+if ! zgenom saved; then
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-HYPHEN_INSENSITIVE="true"
+  # specify plugins here
+  zgenom ohmyzsh
+  zgenom ohmyzsh themes/robbyrussell
+  
+  zgenom load mdumitru/git-aliases
+  zgenom load zdharma-continuum/fast-syntax-highlighting
+  zgenom load zsh-users/zsh-autosuggestions
+  zgenom load zsh-users/zsh-history-substring-search
+  zgenom load --completion clarketm/zsh-completions
+  zgenom load joshskidmore/zsh-fzf-history-search
+  zgenom load Aloxaf/fzf-tab
+  zgenom load akash329d/zsh-alias-finder
 
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+# generate the init script from plugins above
+  zgenom save
+fi
 
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
+# If the internal history needs to be trimmed to add the current command line, setting this
+# option will cause the oldest history event that has a duplicate to be lost before losing a
+# unique event from the list. You should be sure to set the value of HISTSIZE to a larger
+# number than SAVEHIST in order to give you some room for the duplicated events, otherwise
+# this option will behave just like HIST_IGNORE_ALL_DUPS once the history fills up with unique
+# events.
+setopt HIST_EXPIRE_DUPS_FIRST
+# When searching for history entries in the line editor, do not display duplicates of a line
+# previously found, even if the duplicates are not contiguous.
+setopt HIST_FIND_NO_DUPS
+# If a new command line being added to the history list duplicates an older one, the older
+# command is removed from the list (even if it is not the previous event).
+setopt HIST_IGNORE_ALL_DUPS
+# Do not enter command lines into the history list if they are duplicates of the previous event.
+setopt HIST_IGNORE_DUPS
+# Remove command lines from the history list when the first character on the line is a space,
+# or when one of the expanded aliases contains a leading space. Only normal aliases (not
+# global or suffix aliases) have this behaviour. Note that the command lingers in the internal
+# history until the next command is entered before it vanishes, allowing you to briefly reuse
+# or edit the line. If you want to make it vanish right away without entering another command,
+# type a space and press return.
+setopt HIST_IGNORE_SPACE
+# When writing out the history file, older commands that duplicate newer ones are omitted.
+setopt HIST_SAVE_NO_DUPS
+# This option works like APPEND_HISTORY except that new history lines are added to the $HISTFILE
+# incrementally (as soon as they are entered), rather than waiting until the shell exits.
+setopt INC_APPEND_HISTORY
+# GLOBDOTS lets files beginning with a . be matched without explicitly specifying the dot.
+# e.g. cd <TAB> will now show files beginning with . 
+setopt globdots
 
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
+# Key bindings
+# Print current key bindings: bindkey
+# List available key bindings: bindkey -l
+# Interactively show pressed key when pressing any keys
+bindkey "^[[H" beginning-of-line # HOME
+bindkey "^[[F" end-of-line # END
+bindkey "^[[3~" delete-char # DEL
+bindkey "^[[3;5~" delete-word # CTRL+DEL - delete a whole word after cursor
+bindkey "^H" backward-delete-word # CTRL+BACKSPACE - delete a whole word before cursor
+bindkey "^[[1;5C" forward-word # CTRL+ARROW_RIGHT - move cursor forward one word
+bindkey "^[[1;5D" backward-word # CTRL+ARROW_LEFT - move cursor backward one word
+bindkey "^Z" undo # CTRL+Z
+bindkey "^Y" redo # CTRL+Y
 
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+# Bind keys for history substring search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[OA' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey '^[OB' history-substring-search-down
 
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
-COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-HIST_STAMPS="dd/mm/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-	git
-	zsh-autosuggestions
-	zsh-syntax-highlighting
-)
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-source $HOME/.config/zsh/.aliases
+# Source aliases
+source ${ZDOTDIR}/.aliases
 
 # Run fetch script on zsh start
-$HOME/.local/scripts/fetch.sh
+#$HOME/.local/scripts/fetch.sh
+macchina --theme fazzi
+
+#(\cat ~/.cache/wal/sequences &)
+
